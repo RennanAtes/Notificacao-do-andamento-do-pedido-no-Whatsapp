@@ -86,16 +86,18 @@ class Notification():
         self.datas = pd.read_excel("SalvarDados.xlsx")
 
     def EnviarMensagem(self):
-        sendMessage.EnviarMensagem(
-        self.DatesOfIDSQL['telefone'],
-        self.DatesOfIDSQL['statusPedido'],
-        self.DatesOfIDSQL['nome'],
-        'Pagamento',
-        self.DatesOfIDSQL['nameproduct'],
-        self.DatesOfIDSQL['pricetotal'],
-        self.DatesOfIDSQL['transportadora'],
-        self.DatesOfIDSQL['urlrastreio'],
-        )
+        if not self.DatesOfIDSQL['telefone'] == '':
+            sendMessage.EnviarMensagem(
+            #self.DatesOfIDSQL['telefone'],
+            '41998891464',
+            self.DatesOfIDSQL['statusPedido'],
+            self.DatesOfIDSQL['nome'],
+            'Pagamento',
+            self.DatesOfIDSQL['nameproduct'],
+            self.DatesOfIDSQL['pricetotal'],
+            self.DatesOfIDSQL['transportadora'],
+            self.DatesOfIDSQL['urlrastreio'],
+            )
 
 
 def check_internet():
